@@ -12,7 +12,20 @@ type data struct {
 
 func main() {
 
-	url := "https://api.lyrics.ovh/v1/Laufey/From%20The%20Start"
+	//	Doordat je een spatie maakt in de naam; denkt tie dat het voor bijde scans geld
+
+	var artiest string = "pixies"
+	var nummer string = "monkey gone to heaven"
+	var url, Artiest, Nummer string 
+
+	Artiest = strings.Replace(artiest," ", "%20", -1)
+	fmt.Println("replacement: " , Artiest)
+
+	Nummer = strings.Replace(nummer," ", "%20", -1)
+	fmt.Println("replacement: " , Nummer)
+	url = "https://api.lyrics.ovh/v1/"+Artiest+"/"+Nummer
+	fmt.Println(url)
+
 
 	response, ew := http.Get(url)
 	if ew != nil {
@@ -25,8 +38,6 @@ func main() {
 	fmt.Println(string(body))	//raw json 
 
 	//data_obj := data{}
-
-
 
 }
 
