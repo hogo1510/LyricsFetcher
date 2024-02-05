@@ -4,6 +4,7 @@ import(
 //	"encoding/json"
 	"io/ioutil"
     	"net/http"
+	"strings"
 )
 
 type data struct {
